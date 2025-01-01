@@ -10,13 +10,13 @@ categories = []
 # Get all the books
 @app.route('/books', method = ['GET'])
 def get_books():
-  return jsonify(book), 200
+  return jsonify(books), 200
 
 # add new books
 @app.route('/books', method = ['POST'])
 def add_book():
-  data = request.json
-      book = {
+    data = request.json
+    book = {
         "id": len(books) + 1,
         "title": data.get("title"),
         "author_id": data.get("author_id"),
@@ -28,12 +28,12 @@ def add_book():
 # Get all the authors
 @app.route('/authors', method = ['GET' ])
 def get_authors():
-  return jsonify(author), 200
+  return jsonify(authors), 200
   
 # add new authors
-@app.route('/authors', method = [['POST'])
+@app.route('/authors', method = ['POST'])
 def add_author():
-  data = request.json
+    data = request.json
     author = {
       "id": len(authors) + 1
       "name": data.get("name")
@@ -49,7 +49,7 @@ def get_categories():
 # add new categories
 @app.route('/categories', method=['POST']) 
 def add_category():
-  data = request.json
+    data = request.json
     categories = {
       "id": len(categories) + 1
       "name": data.get("name")
