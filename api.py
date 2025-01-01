@@ -5,7 +5,7 @@ app = Flask(__name__)
 #Data lake
 books = []
 authors = []
-categoris = []
+categories = []
 
 # Get all the books
 @app.route('/books', method = ['GET'])
@@ -16,14 +16,14 @@ def get_books():
 @app.route('/books', method = ['POST'])
 def add_book():
   data = request.json
-  book = {
-    "id": len(books) + 1,
-    "title": data.get("title"),
-    "author_id": data.get("author_id"),
-    "category_id": data.get("category_id")
+    book = {
+      "id": len(books) + 1,
+      "title": data.get("title"),
+      "author_id": data.get("author_id"),
+      "category_id": data.get("category_id")
     }
-    books.append(book)
-    return jsonify(book), 201
+  books.append(book)
+  return jsonify(book), 201
 
 # Get all the authors
 @app.route('/authors', method = ['GET' ])
@@ -34,10 +34,10 @@ def get_authors():
 @app.route('/authors', method = [['POST'])
 def add_author():
   data = request.json
-  author = {
-    "id": len(authors) + 1
-    "name": data.get("name")
-  }
+    author = {
+      "id": len(authors) + 1
+      "name": data.get("name")
+    }
   authors.append(author)
   return jsonify(author), 200
 
@@ -50,10 +50,10 @@ def get_categories():
 @app.route('/categories', method=['POST']) 
 def add_category():
   data = request.json
-  categories = {
-    "id": len(categories) + 1
-    "name": data.get("name")
-  }
+    categories = {
+      "id": len(categories) + 1
+      "name": data.get("name")
+    }
   categories.append(category)
   retrun jsonify(category), 201
   
