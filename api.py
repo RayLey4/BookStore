@@ -16,11 +16,11 @@ def get_books():
 @app.route('/books', method = ['POST'])
 def add_book():
   data = request.json
-    book = {
-      "id": len(books) + 1,
-      "title": data.get("title"),
-      "author_id": data.get("author_id"),
-      "category_id": data.get("category_id")
+      book = {
+        "id": len(books) + 1,
+        "title": data.get("title"),
+        "author_id": data.get("author_id"),
+        "category_id": data.get("category_id")
     }
   books.append(book)
   return jsonify(book), 201
